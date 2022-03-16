@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { Box, Card, Container, Typography } from "@material-ui/core";
+import { Box, Card, Container, Typography, CardActionArea } from "@material-ui/core";
 
 import { FlightStatuses } from "../../models/flight.model";
 
@@ -29,25 +29,28 @@ export const FlightCard: React.FC<FlightCardProps> = (
   return (
     <Card
       style={{
+        display: 'flex',
         backgroundColor: "#f5f5f5",
         margin: "15px",
         padding: "35px",
         justifyContent: "center",
       }}
     >
-      <Box style={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h5">{props.code} </Typography>
-        <Typography style={{ color: mapFlightStatusToColor(props.status) }}>
-          Status: {props.status}
-        </Typography>
-      </Box>
+      <CardActionArea>
+        <Box style={{ display: "flex", justifyContent: "space-between" }}>
+          <Typography variant="h5">{props.code} </Typography>
+          <Typography style={{ color: mapFlightStatusToColor(props.status) }}>
+            Status: {props.status}
+          </Typography>
+        </Box>
 
-      <Box>
-        <Typography>Origin: {props.origin}</Typography>
-      </Box>
-      <Box>
-        <Typography>Destination: {props.destination}</Typography>
-      </Box>
+        <Box>
+          <Typography>Origin: {props.origin}</Typography>
+        </Box>
+        <Box>
+          <Typography>Destination: {props.destination}</Typography>
+        </Box>
+      </CardActionArea>
     </Card>
   );
 };

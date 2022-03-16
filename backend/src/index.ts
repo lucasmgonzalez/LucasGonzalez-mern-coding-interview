@@ -6,7 +6,7 @@ import {
     RoutingControllersOptions,
 } from 'routing-controllers'
 import { db } from './memory-database'
-const port = process.env.PORT
+const port = process.env.PORT || 5000
 
 const routingControllersOptions: RoutingControllersOptions = {
     routePrefix: '/v1',
@@ -20,7 +20,7 @@ const routingControllersOptions: RoutingControllersOptions = {
 const app = createExpressServer(routingControllersOptions)
 
 // Connect to In-Memory DB
-;async () => await db({ test: false })
+;db({ test: false })
 
 app.listen(port, () => {
     console.log(`[Live Coding Challenge] Running at http://localhost:${port}`)

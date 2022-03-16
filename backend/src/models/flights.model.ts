@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose'
 
-enum FlightStatuses {
+export enum FlightStatuses {
     arrived = 'Arrived',
     landing = 'Landing',
     onTime = 'On Time',
@@ -8,7 +8,7 @@ enum FlightStatuses {
     cancelled = 'Cancelled',
 }
 
-interface Flight {
+export interface Flight {
     code: string
     origin: string
     destination: string
